@@ -4,7 +4,9 @@ import { useSelector } from 'react-redux'
 import { map, reduce } from 'lodash'
 import { RootState } from '../../store'
 
-const InefficientCard: FC = () => {
+const BadCard: FC = () => {
+  console.log('Bad: I have rendered!')
+
   // Create a record of all counters with the values indicating if they are
   // positive or not.
 
@@ -26,9 +28,10 @@ const InefficientCard: FC = () => {
   // })
 
   // Need to do processing inside selector.
-  // Why is this also bad? See efficientCard.
-  const counters: Record<string, boolean> = useSelector((state: RootState) =>
-    reduce(
+  const counters: Record<string, boolean> = useSelector((state: RootState) => {
+    console.log('Bad: Hello from selector!')
+
+    return reduce(
       state.counter.counters,
       (prev, curr, key) => ({
         ...prev,
@@ -36,11 +39,11 @@ const InefficientCard: FC = () => {
       }),
       {}
     )
-  )
+  })
 
   return (
     <Card>
-      <CardHeader title="Inefficient" />
+      <CardHeader title="Bad" />
       <CardContent>
         {map(counters, (isPositive, key) => (
           <Typography key={key}>{`${key} => ${
@@ -52,4 +55,4 @@ const InefficientCard: FC = () => {
   )
 }
 
-export default InefficientCard
+export default BadCard

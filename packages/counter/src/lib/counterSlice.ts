@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { unset } from 'lodash'
 
 export interface CounterState {
   counters: Record<string, number>
@@ -30,7 +31,7 @@ const counterSlice = createSlice({
       state.counters[action.payload] = 0
     },
     remove: (state, action: PayloadAction<string>) => {
-      if (state.counters[action.payload]) delete state.counters[action.payload]
+      unset(state.counters, action.payload)
     },
   },
 })

@@ -4,12 +4,16 @@ import { useSelector } from 'react-redux'
 import { isEqual, map, reduce } from 'lodash'
 import { RootState } from '../../store'
 
-const EfficientCard: FC = () => {
+const GoodCard: FC = () => {
+  console.log('Good: I have rendered!')
+
   // Create a record of all counters with the values indicating if they are
   // positive or not.
 
   const counters: Record<string, boolean> = useSelector((state: RootState) => {
-    // This runs on every Redux state update to see if there is a change in the
+    console.log('Good: Hello from selector!')
+
+    // This still runs on every Redux state update to see if there is a change in the
     // result.
     return reduce(
       state.counter.counters,
@@ -32,7 +36,7 @@ const EfficientCard: FC = () => {
 
   return (
     <Card>
-      <CardHeader title="Efficient" />
+      <CardHeader title="Good" />
       <CardContent>
         {map(counters, (isPositive, key) => (
           <Typography key={key}>{`${key} => ${
@@ -44,4 +48,4 @@ const EfficientCard: FC = () => {
   )
 }
 
-export default EfficientCard
+export default GoodCard

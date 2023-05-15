@@ -1,11 +1,13 @@
 import { Counter } from '@memoization-explanation/counter'
+import { Contact } from '@memoization-explanation/contacts'
 import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
 import PositiveCard from './cards/positiveCard'
-import InefficientCard from './cards/inefficientCard'
-import EfficientCard from './cards/efficientCard'
+import BadCard from './cards/BadCard'
+import GoodCard from './cards/goodCard'
 import BetterCard from './cards/betterCard'
 
 const COUNTER_NAME = 'my-counter'
+const CONTACT_ID = 'my-contact'
 
 export const App = () => (
   <Container>
@@ -15,17 +17,20 @@ export const App = () => (
       </Toolbar>
     </AppBar>
     <Grid container spacing={2} sx={{ mt: 2 }}>
-      <Grid item xs={12}>
+      <Grid item xs={6}>
         <Counter id={COUNTER_NAME} />
+      </Grid>
+      <Grid item xs={6}>
+        <Contact id={CONTACT_ID} />
       </Grid>
       <Grid item xs={4}>
         <PositiveCard counterId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
-        <InefficientCard />
+        <BadCard />
       </Grid>
       <Grid item xs={4}>
-        <EfficientCard />
+        <GoodCard />
       </Grid>
       <Grid item xs={4}>
         <BetterCard />

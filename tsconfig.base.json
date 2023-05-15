@@ -15,8 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@memoization-explanation/counter": ["packages/counter/src/index.ts"],
-      "@memoization-explanation/dogs": ["packages/dogs/src/index.ts"]
+      "@memoization-explanation/contacts": ["packages/contacts/src/index.ts"],
+      "@memoization-explanation/counter": ["packages/counter/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

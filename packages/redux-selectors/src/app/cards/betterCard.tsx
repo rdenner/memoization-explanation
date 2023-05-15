@@ -24,8 +24,10 @@ import { createSelector } from '@reduxjs/toolkit';
 // But cleaner.
 export const positiveSelector = createSelector(
   (state: RootState) => state.counter.counters,
-  (counters) =>
-    reduce(
+  (counters) => {
+    console.log('Better: Hello from selector!')
+
+    return reduce(
       counters,
       (prev, curr, key) => ({
         ...prev,
@@ -33,9 +35,12 @@ export const positiveSelector = createSelector(
       }),
       {}
     )
+  }
 )
 
 const BetterCard: FC = () => {
+  console.log('Better: I have rendered!')
+
   // Create a record of all counters with the values indicating if they are
   // positive or not.
 
