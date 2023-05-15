@@ -39,3 +39,5 @@ const counterSlice = createSlice({
 export const { increment, decrement, reset, remove } = counterSlice.actions
 
 export const reducer = counterSlice.reducer
+
+export type RootState = { counter: CounterState }

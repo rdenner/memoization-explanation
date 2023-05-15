@@ -24,6 +24,8 @@ const EfficientCard: FC = () => {
   // Problems with this approach?
   // - Deep equality can be expensive
   // - We still do calculations on every state update
+  // - Is this the correct place for this?
+  //   - Calculating on read vs write
 
   // Positives?
   // - Simple

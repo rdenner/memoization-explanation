@@ -3,6 +3,7 @@ import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
 import PositiveCard from './cards/positiveCard'
 import InefficientCard from './cards/inefficientCard'
 import EfficientCard from './cards/efficientCard'
+import BetterCard from './cards/betterCard'
 
 const COUNTER_NAME = 'my-counter'
 
@@ -25,6 +26,9 @@ export const App = () => (
       </Grid>
       <Grid item xs={4}>
         <EfficientCard />
+      </Grid>
+      <Grid item xs={4}>
+        <BetterCard />
       </Grid>
     </Grid>
   </Container>

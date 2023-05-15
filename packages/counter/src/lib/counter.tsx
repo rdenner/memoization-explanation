@@ -1,6 +1,5 @@
-import { decrement, increment, remove, reset } from './counterSlice'
+import { decrement, increment, remove, reset, RootState } from './counterSlice'
 import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from './types'
 import { FC, useEffect, useState } from 'react'
 import {
   Box,
