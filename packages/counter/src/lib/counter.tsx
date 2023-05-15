@@ -22,7 +22,7 @@ export interface Props {
 
 export const Counter: FC<Props> = ({ id, className, startPaused = false }) => {
   const count = useSelector((state: RootState) =>
-    get(state.counter.counters, `${id}`, 0)
+    get(state.counter.counters, id, 0)
   )
   const dispatch = useDispatch()
 

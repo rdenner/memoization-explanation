@@ -1,8 +1,9 @@
 import React, { FC } from 'react'
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
-import { map, reduce } from 'lodash'
+import { map } from 'lodash'
 import { RootState } from '../../store'
+import { getPositiveMap } from './helpers'
 
 const BadCard: FC = () => {
   console.log('Bad: I have rendered!')
@@ -28,24 +29,16 @@ const BadCard: FC = () => {
   // })
 
   // Need to do processing inside selector.
-  const counters: Record<string, boolean> = useSelector((state: RootState) => {
+  const positiveMap = useSelector((state: RootState) => {
     console.log('Bad: Hello from selector!')
-
-    return reduce(
-      state.counter.counters,
-      (prev, curr, key) => ({
-        ...prev,
-        [key]: curr > 0,
-      }),
-      {}
-    )
+    return getPositiveMap(state.counter.counters)
   })
 
   return (
     <Card>
       <CardHeader title="Bad" />
       <CardContent>
-        {map(counters, (isPositive, key) => (
+        {map(positiveMap, (isPositive, key) => (
           <Typography key={key}>{`${key} => ${
             isPositive ? 'positive' : 'negative'
           }`}</Typography>

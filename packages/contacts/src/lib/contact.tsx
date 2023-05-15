@@ -1,4 +1,4 @@
-import { Card, CardContent, TextField } from '@mui/material'
+import { Card, CardContent, CardHeader, TextField } from '@mui/material'
 import { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { add, edit, RootState } from './contactsSlice'
@@ -22,6 +22,7 @@ export const Contact: FC<Props> = ({ id, className }) => {
 
   return (
     <Card className={className}>
+      <CardHeader title="Contact" />
       <CardContent>
         <TextField
           id="contact-name"
