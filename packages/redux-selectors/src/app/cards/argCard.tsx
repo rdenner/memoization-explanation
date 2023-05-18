@@ -53,8 +53,9 @@ const ArgCard: FC<Props> = ({ counterId, contactId }) => {
   )
   const counter3 = useSelector(getCounterSelector3(counterId))
 
-  const contact = useSelector((state: RootState) =>
-    contactsSlice.selectors.selectById(state, contactId)
+  const contactName = useSelector(
+    (state: RootState) =>
+      contactsSlice.selectors.selectById(state, contactId)?.name ?? ''
   )
 
   return (
@@ -64,7 +65,7 @@ const ArgCard: FC<Props> = ({ counterId, contactId }) => {
         <Typography>Counter 1: {counter1}</Typography>
         <Typography>Counter 2: {counter2}</Typography>
         <Typography>Counter 3: {counter3}</Typography>
-        <Typography>Contact: {contact?.name ?? ''}</Typography>
+        <Typography>Contact: {contactName}</Typography>
       </CardContent>
     </Card>
   )
