@@ -6,6 +6,7 @@ import BadCard from './cards/badCard'
 import GoodCard from './cards/goodCard'
 import BetterCard from './cards/betterCard'
 import ArgCard from './cards/argCard'
+import MultiArgCard from './cards/multiArgCard'
 
 const COUNTER_NAME = 'my-counter'
 const CONTACT_ID = 'my-contact'
@@ -36,8 +37,11 @@ export const App = () => (
       <Grid item xs={4}>
         <BetterCard />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={6}>
         <ArgCard counterId={COUNTER_NAME} contactId={CONTACT_ID} />
+      </Grid>
+      <Grid item xs={6}>
+        <MultiArgCard counterId={COUNTER_NAME} contactId={CONTACT_ID} />
       </Grid>
     </Grid>
   </Container>
