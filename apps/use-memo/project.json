@@ -1,15 +1,17 @@
 {
-  "name": "redux-selectors",
+  "name": "use-memo",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/redux-selectors/src",
+  "sourceRoot": "apps/use-memo/src",
   "projectType": "application",
   "targets": {
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/redux-selectors"
+        "outputPath": "dist/apps/use-memo"
       },
       "configurations": {
         "development": {
@@ -24,15 +26,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "use-memo:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "redux-selectors:build:development",
+          "buildTarget": "use-memo:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "redux-selectors:build:production",
+          "buildTarget": "use-memo:build:production",
           "hmr": false
         }
       }
@@ -41,36 +43,42 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "use-memo:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "redux-selectors:build:development"
+          "buildTarget": "use-memo:build:development"
         },
         "production": {
-          "buildTarget": "redux-selectors:build:production"
+          "buildTarget": "use-memo:build:production"
         }
       }
     },
     "test": {
       "executor": "@nx/vite:test",
-      "outputs": ["coverage/packages/redux-selectors"],
+      "outputs": [
+        "coverage/libs/use-memo"
+      ],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/packages/redux-selectors"
+        "reportsDirectory": "../../coverage/libs/use-memo"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/redux-selectors/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "libs/use-memo/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "use-memo:build"
       }
     }
   },

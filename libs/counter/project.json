@@ -1,23 +1,29 @@
 {
   "name": "counter",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/counter/src",
+  "sourceRoot": "libs/counter/src",
   "projectType": "library",
   "tags": [],
   "targets": {
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
-        "lintFilePatterns": ["packages/counter/**/*.{ts,tsx,js,jsx}"]
+        "lintFilePatterns": [
+          "libs/counter/**/*.{ts,tsx,js,jsx}"
+        ]
       }
     },
     "build": {
       "executor": "@nx/vite:build",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/packages/counter"
+        "outputPath": "dist/libs/counter"
       },
       "configurations": {
         "development": {

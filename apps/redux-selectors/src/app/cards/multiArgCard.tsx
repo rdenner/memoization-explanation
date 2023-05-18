@@ -90,7 +90,7 @@ const MultiArgCard: FC<Props> = ({ counterId, contactId }) => {
 
   return (
     <Card>
-      <CardHeader title="Args" />
+      <CardHeader title="Multi Args" />
       <CardContent>
         <Typography>Select 1: {JSON.stringify(data1)}</Typography>
         <Typography>Select 2: {JSON.stringify(data2)}</Typography>

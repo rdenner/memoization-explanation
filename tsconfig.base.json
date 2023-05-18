@@ -10,14 +10,24 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@memoization-explanation/contacts": ["packages/contacts/src/index.ts"],
-      "@memoization-explanation/counter": ["packages/counter/src/index.ts"]
+      "@memoization-explanation/contacts": [
+        "libs/contacts/src/index.ts"
+      ],
+      "@memoization-explanation/counter": [
+        "libs/counter/src/index.ts"
+      ]
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }
