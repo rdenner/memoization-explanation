@@ -1,8 +1,7 @@
 import { Card, CardContent, CardHeader, TextField } from '@mui/material'
 import { FC, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { add, edit, RootState } from './contactsSlice'
-import { get } from 'lodash'
+import { add, edit, RootState, selectors } from './contactsSlice'
 
 export interface Props {
   id: string
@@ -11,13 +10,13 @@ export interface Props {
 
 export const Contact: FC<Props> = ({ id, className }) => {
   const contact = useSelector((state: RootState) =>
-    get(state.contacts.contacts, id)
+    selectors.selectById(state, id)
   )
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    if (!contact) dispatch(add({ id, contact: { name: '', cellNumber: '' } }))
+    if (!contact) dispatch(add({ id, name: '', cellNumber: '' }))
   }, [])
 
   return (
@@ -30,8 +29,8 @@ export const Contact: FC<Props> = ({ id, className }) => {
           sx={{ mr: 2 }}
           onBlur={(input) => {
             const newVal = input.target.value.trim()
-            if (contact.name !== newVal)
-              dispatch(edit({ id, contact: { name: newVal } }))
+            if (contact?.name !== newVal)
+              dispatch(edit({ id, changes: { name: newVal } }))
           }}
         />
         <TextField
@@ -39,8 +38,8 @@ export const Contact: FC<Props> = ({ id, className }) => {
           label="Cell Number"
           onBlur={(input) => {
             const newVal = input.target.value.trim()
-            if (contact.cellNumber !== newVal)
-              dispatch(edit({ id, contact: { cellNumber: newVal } }))
+            if (contact?.cellNumber !== newVal)
+              dispatch(edit({ id, changes: { cellNumber: newVal } }))
           }}
         />
       </CardContent>

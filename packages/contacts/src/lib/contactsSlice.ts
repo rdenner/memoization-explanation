@@ -1,41 +1,23 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { unset } from 'lodash'
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 
 export interface Contact {
+  id: string
   name: string
   cellNumber: string
 }
 
-export interface ContactsState {
-  contacts: Record<string, Contact>
-}
-
-const initialState: ContactsState = {
-  contacts: {},
-}
+const contactAdapter = createEntityAdapter<Contact>({
+  selectId: ({ id }) => id,
+  sortComparer: (a, b) => a.name.localeCompare(b.name),
+})
 
 const contactsSlice = createSlice({
   name: 'contacts',
-  initialState,
+  initialState: contactAdapter.getInitialState(),
   reducers: {
-    add: (state, action: PayloadAction<{ id: string; contact: Contact }>) => {
-      state.contacts[action.payload.id] = action.payload.contact
-    },
-    edit: (
-      state,
-      action: PayloadAction<{ id: string; contact: Partial<Contact> }>
-    ) => {
-      const existing = state.contacts[action.payload.id]
-      if (existing) {
-        state.contacts[action.payload.id] = {
-          ...existing,
-          ...action.payload.contact,
-        }
-      }
-    },
-    remove: (state, action: PayloadAction<string>) => {
-      unset(state.contacts, action.payload)
-    },
+    add: contactAdapter.addOne,
+    edit: contactAdapter.updateOne,
+    remove: contactAdapter.removeOne,
   },
 })
 
@@ -44,4 +26,11 @@ export const { add, edit, remove } = contactsSlice.actions
 
 export const reducer = contactsSlice.reducer
 
-export type RootState = { contacts: ContactsState }
+export type RootState = {
+  contacts: ReturnType<typeof contactAdapter.getInitialState>
+}
+
+// Can create a set of memoized selectors based on the location of this entity state
+export const selectors = contactAdapter.getSelectors<RootState>(
+  (state) => state.contacts
+)

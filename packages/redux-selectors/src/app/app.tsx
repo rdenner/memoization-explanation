@@ -2,9 +2,10 @@ import { Counter } from '@memoization-explanation/counter'
 import { Contact } from '@memoization-explanation/contacts'
 import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
 import PositiveCard from './cards/positiveCard'
-import BadCard from './cards/BadCard'
+import BadCard from './cards/badCard'
 import GoodCard from './cards/goodCard'
 import BetterCard from './cards/betterCard'
+import ArgCard from './cards/argCard'
 
 const COUNTER_NAME = 'my-counter'
 const CONTACT_ID = 'my-contact'
@@ -23,7 +24,7 @@ export const App = () => (
       <Grid item xs={6}>
         <Contact id={CONTACT_ID} />
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12}>
         <PositiveCard counterId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
@@ -34,6 +35,9 @@ export const App = () => (
       </Grid>
       <Grid item xs={4}>
         <BetterCard />
+      </Grid>
+      <Grid item xs={4}>
+        <ArgCard counterId={COUNTER_NAME} contactId={CONTACT_ID} />
       </Grid>
     </Grid>
   </Container>

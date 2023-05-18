@@ -2,7 +2,9 @@
   "name": "memoization-explanation",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "redux-selectors": "nx serve redux-selectors"
+  },
   "private": true,
   "devDependencies": {
     "@nx/eslint-plugin": "16.1.4",
