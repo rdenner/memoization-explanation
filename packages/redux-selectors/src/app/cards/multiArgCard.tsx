@@ -65,16 +65,23 @@ const select4 = createSelector(
 const MultiArgCard: FC<Props> = ({ counterId, contactId }) => {
   console.log('MultiArgs: I have rendered!')
 
+  // Why does this not need a custom equality function?
   const data1 = useSelector((state: RootState) =>
     select1(state, counterId, contactId)
   )
+
   const data2 = useSelector((state: RootState) =>
     select2(state, { counterId, contactId })
   )
+
+  // This one is bad because the props cause it to run even if unrelated state updates occur.
+  // Can be helped with custom equality function, but would be better if we prevent
+  // running it entirely.
   const data3 = useSelector((state: RootState) =>
     select3(state, { counterId, contactId })
   )
 
+  // Memo parameters to solve issue:
   const params = useMemo(
     () => ({ counterId, contactId }),
     [counterId, contactId]
