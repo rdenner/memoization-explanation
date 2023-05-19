@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { createSelector } from '@reduxjs/toolkit'
-import { RootState } from '../../store'
+import { RootState } from '@memoization-explanation/store'
 import { FC, useMemo } from 'react'
 import { contactsSlice } from '@memoization-explanation/contacts'
 import { find } from 'lodash'

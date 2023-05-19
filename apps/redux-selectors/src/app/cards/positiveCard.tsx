@@ -2,7 +2,7 @@ import { FC } from 'react'
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { get } from 'lodash'
-import { RootState } from '../../store'
+import { RootState } from '@memoization-explanation/store'
 
 interface Props {
   counterId: string

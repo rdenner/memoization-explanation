@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, Typography } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { createSelector } from '@reduxjs/toolkit';
-import { RootState } from '../../store';
+import { RootState } from '@memoization-explanation/store';
 import { FC } from 'react';
 import { contactsSlice } from '@memoization-explanation/contacts';
 
@@ -42,6 +42,8 @@ interface Props {
   contactId: string
 }
 
+// TODO: What would happen if multiple cards use the same selector?
+//  Create two instances of this card perhaps
 const ArgCard: FC<Props> = ({ counterId, contactId }) => {
   console.log('Args: I have rendered!')
 

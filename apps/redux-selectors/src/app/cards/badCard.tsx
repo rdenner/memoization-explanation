@@ -2,8 +2,8 @@ import { FC } from 'react'
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { map } from 'lodash'
-import { RootState } from '../../store'
-import { getPositiveMap } from './helpers'
+import { RootState } from '@memoization-explanation/store'
+import { getPositiveMap } from '@memoization-explanation/counter'
 
 const BadCard: FC = () => {
   console.log('Bad: I have rendered!')
