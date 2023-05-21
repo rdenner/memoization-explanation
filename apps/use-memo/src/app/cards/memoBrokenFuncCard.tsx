@@ -1,9 +1,22 @@
 import { FC, memo } from 'react'
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
+import {
+  Button,
+  Card,
+  CardContent,
+  CardHeader,
+  Typography,
+} from '@mui/material'
 import { useSelector } from 'react-redux'
 import { RootState } from '@memoization-explanation/store'
 import { get } from 'lodash'
-import Content from './Content'
+import Expensive from '../Expensive'
+
+const Content: FC<{ onClick: () => void }> = ({ onClick }) => (
+  <CardContent>
+    <Button onClick={onClick}>Click</Button>
+    <Expensive />
+  </CardContent>
+)
 
 const ContentMemo = memo(Content)
 
@@ -11,19 +24,16 @@ interface Props {
   countId: string
 }
 
-const MemoBrokenCard: FC<Props> = ({ countId }) => {
+const MemoBrokenFuncCard: FC<Props> = ({ countId }) => {
   const count = useSelector((state: RootState) =>
     get(state.counter.counters, countId, 0)
   )
 
-  // Object recreated on each render
-  const positiveMap = { [countId]: count }
-
   return (
     <Card>
-      <CardHeader title="Broken Memo" />
+      <CardHeader title="Broken Memo Func" />
       {/* This prop breaks memo */}
-      <ContentMemo positiveMap={positiveMap} />
+      <ContentMemo onClick={() => console.log('Hi!')} />
       <CardContent>
         <Typography>Count: {count}</Typography>
       </CardContent>
@@ -31,4 +41,4 @@ const MemoBrokenCard: FC<Props> = ({ countId }) => {
   )
 }
 
-export default MemoBrokenCard
+export default MemoBrokenFuncCard

@@ -1,21 +1,14 @@
-import { FC, memo } from 'react'
-import { Card, CardContent, CardHeader, Typography } from '@mui/material'
-import { useSelector } from 'react-redux'
-import { RootState } from '@memoization-explanation/store'
-import { get, isEqual, some } from 'lodash'
-import Expensive from '../Expensive'
-
-const Content: FC<{ positiveMap: object }> = ({ positiveMap }) => (
-  <CardContent>
-    <Typography>
-      Has positive: {some(positiveMap, (val) => val > 0) ? 'Yes' : 'No'}
-    </Typography>
-    <Expensive />
-  </CardContent>
-)
+import { FC, memo } from 'react';
+import { Card, CardContent, CardHeader, Typography } from '@mui/material';
+import { useSelector } from 'react-redux';
+import { RootState } from '@memoization-explanation/store';
+import { get, isEqual } from 'lodash';
+import Content from './Content';
 
 // Use deep equality to check for changes:
-const ContentMemo = memo(Content, isEqual)
+const ContentMemo = memo(Content, (first, second) =>
+  isEqual(first.positiveMap, second.positiveMap)
+)
 
 interface Props {
   countId: string
@@ -32,7 +25,12 @@ const MemoFixedCard: FC<Props> = ({ countId }) => {
   return (
     <Card>
       <CardHeader title="Fixed Memo deep equality" />
-      <ContentMemo positiveMap={positiveMap} />
+      <ContentMemo
+        positiveMap={positiveMap}
+        onClick={() => {
+          console.log('Hi!')
+        }}
+      />
       <CardContent>
         <Typography>Count: {count}</Typography>
       </CardContent>

@@ -3,6 +3,7 @@ import { Counter } from '@memoization-explanation/counter'
 import MemoCard from './cards/memoCard'
 import NoMemoCard from './cards/noMemoCard'
 import MemoBrokenCard from './cards/memoBrokenCard'
+import MemoBrokenFuncCard from './cards/memoBrokenFuncCard'
 import MemoFixedCard from './cards/memoFixedCard'
 import MemoFixedHookCard from './cards/memoFixedHookCard'
 import MemoRedundantCard from './cards/memoRedundantCard'
@@ -31,6 +32,9 @@ export const App = () => (
       </Grid>
       <Grid item xs={4}>
         <MemoBrokenCard countId={COUNTER_NAME} />
+      </Grid>
+      <Grid item xs={4}>
+        <MemoBrokenFuncCard countId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
         <MemoFixedCard countId={COUNTER_NAME} />
