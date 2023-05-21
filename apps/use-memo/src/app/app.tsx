@@ -1,14 +1,13 @@
 import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
 import { Counter } from '@memoization-explanation/counter'
-import { Contact } from '@memoization-explanation/contacts'
-import BadMemoCard from './cards/badMemoCard'
-import TodoCardNoMemo from './cards/todo/noMemo/todoCard'
-import TodoCardNoCallback from './cards/todo/noUseCallback/todoCard'
-import TodoCardMemo from './cards/todo/memo/todoCard'
-import BadMemoCard2 from './cards/badMemoCard2'
+import MemoCard from './cards/memoCard'
+import NoMemoCard from './cards/noMemoCard'
+import MemoBrokenCard from './cards/memoBrokenCard'
+import MemoFixedCard from './cards/memoFixedCard'
+import MemoFixedHookCard from './cards/memoFixedHookCard'
+import MemoRedundantCard from './cards/memoRedundantCard'
 
 const COUNTER_NAME = 'my-counter'
-const CONTACT_ID = 'my-contact'
 
 export const App = () => (
   <Container>
@@ -18,26 +17,26 @@ export const App = () => (
       </Toolbar>
     </AppBar>
     <Grid container spacing={2} sx={{ mt: 2 }}>
-      <Grid item xs={6}>
+      <Grid item xs={12}>
         <Counter id={COUNTER_NAME} />
       </Grid>
-      <Grid item xs={6}>
-        <Contact id={CONTACT_ID} />
+      <Grid item xs={4}>
+        <NoMemoCard countId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
-        <TodoCardNoMemo countId={COUNTER_NAME} />
+        <MemoCard countId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
-        <TodoCardNoCallback countId={COUNTER_NAME} />
+        <MemoRedundantCard countId={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
-        <TodoCardMemo countId={COUNTER_NAME} />
+        <MemoBrokenCard countId={COUNTER_NAME} />
       </Grid>
-      <Grid item xs={6}>
-        <BadMemoCard />
+      <Grid item xs={4}>
+        <MemoFixedCard countId={COUNTER_NAME} />
       </Grid>
-      <Grid item xs={6}>
-        <BadMemoCard2 />
+      <Grid item xs={4}>
+        <MemoFixedHookCard countId={COUNTER_NAME} />
       </Grid>
     </Grid>
   </Container>

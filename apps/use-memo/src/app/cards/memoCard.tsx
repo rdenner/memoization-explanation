@@ -1,30 +1,24 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { RootState } from '@memoization-explanation/store'
 import { get } from 'lodash'
-import Todo from '../memo/Todo'
+import ExpensiveMemo from '../ExpensiveMemo'
 
 interface Props {
   countId: string
 }
 
-const TodoCard: FC<Props> = ({ countId }) => {
-  const [todos, setTodos] = useState<string[]>([])
-
+const MemoCard: FC<Props> = ({ countId }) => {
   const count = useSelector((state: RootState) =>
     get(state.counter.counters, countId, 0)
   )
 
-  const addTodo = () => {
-    setTodos((t) => [...t, 'New Todo'])
-  }
-
   return (
     <Card>
-      <CardHeader title="No Callback" />
+      <CardHeader title="Memo" />
       <CardContent>
-        <Todo todos={todos} addTodo={addTodo} />
+        <ExpensiveMemo />
       </CardContent>
       <CardContent>
         <Typography>Count: {count}</Typography>
@@ -33,4 +27,4 @@ const TodoCard: FC<Props> = ({ countId }) => {
   )
 }
 
-export default TodoCard
+export default MemoCard
