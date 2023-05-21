@@ -9,6 +9,7 @@ import MemoFixedHookCard from './cards/memoFixedHookCard'
 import MemoRedundantCard from './cards/memoRedundantCard'
 import MemoChildren from './cards/memoChildren'
 import MemoFuncCard from './cards/memoFuncCard'
+import MultiMemoCard from './cards/multiMemoCard'
 
 const COUNTER_NAME = 'my-counter'
 
@@ -49,6 +50,9 @@ export const App = () => (
       </Grid>
       <Grid item xs={4}>
         <MemoFuncCard />
+      </Grid>
+      <Grid item xs={4}>
+        <MultiMemoCard countId={COUNTER_NAME} />
       </Grid>
     </Grid>
   </Container>
