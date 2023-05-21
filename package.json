@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+    "use-memo": "nx serve use-memo",
     "redux-selectors": "nx serve redux-selectors",
-    "use-memo": "nx serve use-memo"
+    "context": "nx serve context"
   },
   "private": true,
   "devDependencies": {

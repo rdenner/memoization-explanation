@@ -1,3 +1,6 @@
-export * from './lib/counter'
+export { Counter } from './lib/counter'
+export { ReduxCounter } from './lib/reduxCounter'
+export { ContextCounter } from './lib/contextCounter'
 export * as counterSlice from './lib/counterSlice'
+export * as counterContext from './lib/counterContext'
 export * from './lib/helpers'

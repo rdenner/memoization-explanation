@@ -1,4 +1,4 @@
-import { Counter } from '@memoization-explanation/counter'
+import { ReduxCounter } from '@memoization-explanation/counter'
 import { Contact } from '@memoization-explanation/contacts'
 import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
 import PositiveCard from './cards/positiveCard'
@@ -20,7 +20,7 @@ export const App = () => (
     </AppBar>
     <Grid container spacing={2} sx={{ mt: 2 }}>
       <Grid item xs={6}>
-        <Counter id={COUNTER_NAME} />
+        <ReduxCounter id={COUNTER_NAME} />
       </Grid>
       <Grid item xs={6}>
         <Contact id={CONTACT_ID} />

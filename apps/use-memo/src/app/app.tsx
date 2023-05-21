@@ -1,5 +1,5 @@
 import { AppBar, Container, Grid, Toolbar, Typography } from '@mui/material'
-import { Counter } from '@memoization-explanation/counter'
+import { ReduxCounter } from '@memoization-explanation/counter'
 import MemoCard from './cards/memoCard'
 import NoMemoCard from './cards/noMemoCard'
 import MemoBrokenCard from './cards/memoBrokenCard'
@@ -22,7 +22,7 @@ export const App = () => (
     </AppBar>
     <Grid container spacing={2} sx={{ mt: 2 }}>
       <Grid item xs={12}>
-        <Counter id={COUNTER_NAME} />
+        <ReduxCounter id={COUNTER_NAME} />
       </Grid>
       <Grid item xs={4}>
         <NoMemoCard countId={COUNTER_NAME} />
