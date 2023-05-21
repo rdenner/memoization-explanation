@@ -3,11 +3,9 @@ import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { RootState } from '@memoization-explanation/store'
 import { get } from 'lodash'
-import ExpensiveMemo from '../ExpensiveMemo'
+import Expensive from '../Expensive'
 
-interface Props {
-  countId: string
-}
+const ExpensiveMemo = memo(Expensive)
 
 const Content = () => (
   <CardContent>
@@ -17,6 +15,10 @@ const Content = () => (
 )
 
 const ContentMemo = memo(Content)
+
+interface Props {
+  countId: string
+}
 
 const MemoRedundantCard: FC<Props> = ({ countId }) => {
   const count = useSelector((state: RootState) =>

@@ -1,9 +1,11 @@
-import { FC } from 'react'
+import { FC, memo } from 'react'
 import { Card, CardContent, CardHeader, Typography } from '@mui/material'
 import { useSelector } from 'react-redux'
 import { RootState } from '@memoization-explanation/store'
 import { get } from 'lodash'
-import ExpensiveMemo from '../ExpensiveMemo'
+import Expensive from '../Expensive'
+
+const ExpensiveMemo = memo(Expensive)
 
 interface Props {
   countId: string
