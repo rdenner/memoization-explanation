@@ -28,6 +28,11 @@ const MemoFixedHookCard: FC<Props> = ({ countId }) => {
     console.log('Hi!', isPositive)
   }, [isPositive])
 
+  // Same as this
+  // const onClick2 = useMemo(() => () => {
+  //   console.log('Hi!', isPositive)
+  // }, [isPositive])
+
   return (
     <Card>
       <CardHeader title="Fixed Memo with hook" />
