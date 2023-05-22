@@ -43,6 +43,19 @@ const BetterCard: FC = () => {
   // This does solve the re-render issue, but we still have a redundant check
   const positiveMap = useSelector(positiveSelector, isEqual)
 
+  // What if I don't want to use deep equality?
+  // - Have selector on lowest level for each key that just looks at is positive
+  //
+  // Problem?
+  // - Keys are also stored in redux
+  //
+  // Solution?
+  // - Store keys separately in redux to not be affected by changing values
+  //
+  // Notes:
+  // - Storage vs computation
+  // - Profile to see if it was worth it
+
   return (
     <Card>
       <CardHeader title="Better" />

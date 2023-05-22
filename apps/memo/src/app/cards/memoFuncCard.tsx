@@ -13,15 +13,13 @@ const onClick = () => {
   console.log('After memo', foo)
 }
 
-const MemoFuncCard: FC = () => {
-  return (
-    <Card>
-      <CardHeader title="Memo Func" />
-      <CardContent>
-        <Button onClick={onClick}>Click Me!</Button>
-      </CardContent>
-    </Card>
-  )
-}
+const MemoFuncCard: FC = () => (
+  <Card>
+    <CardHeader title="Memo Func" />
+    <CardContent>
+      <Button onClick={onClick}>Click Me!</Button>
+    </CardContent>
+  </Card>
+)
 
 export default MemoFuncCard

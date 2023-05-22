@@ -10,6 +10,7 @@ interface Props {
 }
 
 const NoMemoCard: FC<Props> = ({ countId }) => {
+  // This constantly changes
   const count = useSelector((state: RootState) =>
     get(state.counter.counters, countId, 0)
   )
@@ -18,6 +19,8 @@ const NoMemoCard: FC<Props> = ({ countId }) => {
     <Card>
       <CardHeader title="No Memo" />
       <CardContent>
+        {/* This has nothing to do with count, but constantly rerenders when */}
+        {/* count changes. */}
         <Expensive />
       </CardContent>
       <CardContent>

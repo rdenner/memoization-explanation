@@ -17,7 +17,7 @@ const MemoBrokenCard: FC<Props> = ({ countId }) => {
   )
 
   // Object recreated on each render
-  const positiveMap = { [countId]: count }
+  const positiveMap = { [countId]: count > 0 }
 
   return (
     <Card>
