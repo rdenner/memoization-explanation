@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@memoization-explanation/contacts": ["libs/contacts/src/index.ts"],
+      "@memoization-explanation/counter": ["libs/counter/src/index.ts"],
+      "@memoization-explanation/store": ["libs/store/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
