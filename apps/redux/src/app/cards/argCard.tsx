@@ -42,8 +42,6 @@ interface Props {
   contactId: string
 }
 
-// TODO: What would happen if multiple cards use the same selector?
-//  Create two instances of this card perhaps
 const ArgCard: FC<Props> = ({ counterId, contactId }) => {
   console.log('Args: I have rendered!')
 
@@ -53,8 +51,12 @@ const ArgCard: FC<Props> = ({ counterId, contactId }) => {
   const counter2 = useSelector((state: RootState) =>
     selectCounter2(state, counterId)
   )
+
+  // This one still works, but not really
   const counter3 = useSelector(getCounterSelector3(counterId))
 
+  // Comment out this one to show it still prevents renders
+  // Then put it back to show memoization in selector is useless
   const contactName = useSelector(
     (state: RootState) =>
       contactsSlice.selectors.selectById(state, contactId)?.name ?? ''

@@ -8,6 +8,10 @@ Why calculate something that is given the same input?
 
 Memoization helps performance by remembering what the results were for specific inputs.
 
+You should always profile to see if it actually made a difference.
+
+Memoization can be a hit to performance if used incorrectly.
+
 ## Recommended Reading
 
 [Use React.memo() wisely](https://dmitripavlutin.com/use-react-memo-wisely/), Dmitri Pavlutin (28-01-2023)
