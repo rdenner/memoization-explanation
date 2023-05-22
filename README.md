@@ -2,21 +2,33 @@
 
 This repo is intended to be used during a presentation to show how React handles updates in different scenarios.
 
+## What is Memoization?
+
+Why calculate something that is given the same input?
+
+Memoization helps performance by remembering what the results were for specific inputs.
+
+## Recommended Reading
+
+[Use React.memo() wisely](https://dmitripavlutin.com/use-react-memo-wisely/), Dmitri Pavlutin (28-01-2023)
+
+## Projects
+
 These are the different apps that can be run to show scenarios for each category:
 
-## Memo
+### Memo
 
 ```
 npm run memo
 ```
 
-## Redux
+### Redux
 
 ```
 npm run redux
 ```
 
-## Context
+### Context
 
 ```
 npm run context

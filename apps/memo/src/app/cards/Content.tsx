@@ -4,7 +4,7 @@ import { some } from 'lodash'
 import Expensive from '../Expensive'
 
 interface Props {
-  positiveMap?: object
+  positiveMap?: Record<string, boolean>
   onClick?: () => void
 }
 
@@ -13,7 +13,7 @@ const Content: FC<Props> = ({ positiveMap, onClick }) => (
     {onClick && <Button onClick={onClick}>Click</Button>}
     {positiveMap && (
       <Typography>
-        Has positive: {some(positiveMap, (val) => val > 0) ? 'Yes' : 'No'}
+        Has positive: {some(positiveMap, (val) => val) ? 'Yes' : 'No'}
       </Typography>
     )}
     <Expensive />
