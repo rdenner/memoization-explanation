@@ -1,7 +1,7 @@
 {
-  "name": "redux-selectors",
+  "name": "redux",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/redux-selectors/src",
+  "sourceRoot": "apps/redux/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,7 +11,7 @@
       ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/redux-selectors"
+        "outputPath": "dist/apps/redux"
       },
       "configurations": {
         "development": {
@@ -26,15 +26,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "redux:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "redux-selectors:build:development",
+          "buildTarget": "redux:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "redux-selectors:build:production",
+          "buildTarget": "redux:build:production",
           "hmr": false
         }
       }
@@ -43,25 +43,25 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "redux:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "redux-selectors:build:development"
+          "buildTarget": "redux:build:development"
         },
         "production": {
-          "buildTarget": "redux-selectors:build:production"
+          "buildTarget": "redux:build:production"
         }
       }
     },
     "test": {
       "executor": "@nx/vite:test",
       "outputs": [
-        "coverage/libs/redux-selectors"
+        "coverage/libs/redux"
       ],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/apps/redux-selectors"
+        "reportsDirectory": "../../coverage/apps/redux"
       }
     },
     "lint": {
@@ -71,14 +71,14 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "apps/redux-selectors/**/*.{ts,tsx,js,jsx}"
+          "apps/redux/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "redux-selectors:build"
+        "buildTarget": "redux:build"
       }
     }
   },

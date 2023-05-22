@@ -1,7 +1,7 @@
 {
-  "name": "use-memo",
+  "name": "memo",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/use-memo/src",
+  "sourceRoot": "apps/memo/src",
   "projectType": "application",
   "targets": {
     "build": {
@@ -11,7 +11,7 @@
       ],
       "defaultConfiguration": "production",
       "options": {
-        "outputPath": "dist/apps/use-memo"
+        "outputPath": "dist/apps/memo"
       },
       "configurations": {
         "development": {
@@ -26,15 +26,15 @@
       "executor": "@nx/vite:dev-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "use-memo:build"
+        "buildTarget": "memo:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "use-memo:build:development",
+          "buildTarget": "memo:build:development",
           "hmr": true
         },
         "production": {
-          "buildTarget": "use-memo:build:production",
+          "buildTarget": "memo:build:production",
           "hmr": false
         }
       }
@@ -43,25 +43,25 @@
       "executor": "@nx/vite:preview-server",
       "defaultConfiguration": "development",
       "options": {
-        "buildTarget": "use-memo:build"
+        "buildTarget": "memo:build"
       },
       "configurations": {
         "development": {
-          "buildTarget": "use-memo:build:development"
+          "buildTarget": "memo:build:development"
         },
         "production": {
-          "buildTarget": "use-memo:build:production"
+          "buildTarget": "memo:build:production"
         }
       }
     },
     "test": {
       "executor": "@nx/vite:test",
       "outputs": [
-        "coverage/libs/use-memo"
+        "coverage/libs/memo"
       ],
       "options": {
         "passWithNoTests": true,
-        "reportsDirectory": "../../coverage/libs/use-memo"
+        "reportsDirectory": "../../coverage/libs/memo"
       }
     },
     "lint": {
@@ -71,14 +71,14 @@
       ],
       "options": {
         "lintFilePatterns": [
-          "libs/use-memo/**/*.{ts,tsx,js,jsx}"
+          "libs/memo/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "serve-static": {
       "executor": "@nx/web:file-server",
       "options": {
-        "buildTarget": "use-memo:build"
+        "buildTarget": "memo:build"
       }
     }
   },

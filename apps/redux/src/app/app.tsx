@@ -15,7 +15,7 @@ export const App = () => (
   <Container>
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6">Redux Selectors</Typography>
+        <Typography variant="h6">Redux</Typography>
       </Toolbar>
     </AppBar>
     <Grid container spacing={2} sx={{ mt: 2 }}>
